@@ -1,0 +1,161 @@
+create view public.provider_e as
+	select provider_name,
+	provider_city,
+	provider_adress,
+	provider_rating,
+	case when provider_rating < 6 then 'Ненадежный'
+	else 'Надежный'
+	end as provider_is_reliable
+	from public.provider 
+	order by provider_city, provider_name, provider_rating desc;
+
+
+create view public.detail_e as 
+	select 
+	detail_name,
+	detail_price/1000. as detail_price_thousand,
+	detail_color,
+	detail_weight/1000. as detail_weight_kilos,
+	case when detail_price > 1000 then 'Дорогая'
+	else 'Дешевая'
+	end
+	from public.detail
+	order by detail_price_thousand desc, detail_name, detail_color, detail_weight_kilos asc
+	
+create view public.project_e as
+	select
+	project_name,
+	project_city,
+	project_adress,
+	project_budget
+	from public.project
+	order by project_city, project_name, project_budget desc
+
+create view public.purchase_e as
+    select
+	detail_name,
+	detail_color,
+	detail_is_expensive,
+	provider_name,
+	provider_city,
+	provider_is_reliable,
+	detail_quantity,
+	detail_quantity*detail_weight as purchase_total_weight,
+	detail_quantity*detail_price as purchase_total_price
+	from (select a.provider_id,
+		a.detail_id,
+		detail_quantity,
+		detail_name,
+		detail_color,
+		detail_price,
+		detail_weight,
+		case when detail_price > 1000 then 'Дорогая'
+		else 'Дешевая'
+		end as detail_is_expensive,
+		provider_name,
+		provider_city,
+		provider_is_reliable
+		from public.purchase a
+		join (select 
+			detail_id,
+			detail_name,
+			cast(detail_color as text) as detail_color,
+			detail_price,
+			detail_weight,
+			case when detail_price > 1000 then 'Дорогая'
+			else 'Дешевая'
+			end as detail_is_expensive
+			from public.detail) b on a.detail_id = b.detail_id
+		join (select
+			provider_id,
+			provider_name,
+			provider_city,
+			case when provider_rating < 6 then 'Ненадежный'
+			else 'Надежный'
+			end as provider_is_reliable
+			from public.provider 
+		) c on a.provider_id = c.provider_id
+		) as OT
+	)
+	order by detail_name,provider_name,purchase_total_price desc,purchase_total_weight desc) as foo
+	
+
+	
+create view public.provider_d as
+	select provider_name,
+	provider_city,
+	case when provider_rating < 6 then 'Ненадежный'
+	else 'Надежный'
+	end as is_reliable
+	from public.provider 
+	order by is_reliable, provider_city, provider_name desc; 
+
+
+create view public.detail_d as 
+	select 
+	detail_name,
+	detail_price/1000. as detail_price_thousand,
+	detail_color,
+	case when detail_price > 1000 then 'Дорогая'
+	else 'Дешевая'
+	end as is_expensive
+	from public.detail
+	order by detail_price_thousand desc, detail_name
+	
+create view public.project_d as
+	select
+	project_name,
+	project_city,
+	project_budget
+	from public.project
+	order by project_budget desc, project_city, project_name
+	
+
+create view public.purchase_d as
+	select
+	detail_name,
+	detail_color,
+	detail_is_expensive,
+	provider_name,
+	provider_city,
+	provider_is_reliable,
+	detail_quantity,
+	detail_quantity*detail_weight as purchase_total_weight,
+	detail_quantity*detail_price as purchase_total_price
+	from (select a.provider_id,
+		a.detail_id,
+		detail_quantity,
+		detail_name,
+		detail_color,
+		detail_price,
+		detail_weight,
+		case when detail_price > 1000 then 'Дорогая'
+		else 'Дешевая'
+		end as detail_is_expensive,
+		provider_name,
+		provider_city,
+		provider_is_reliable
+		from public.purchase a
+		join (select 
+			detail_id,
+			detail_name,
+			detail_color,
+			detail_price,
+			detail_weight,
+			case when detail_price > 1000 then 'Дорогая'
+			else 'Дешевая'
+			end as detail_is_expensive
+			from public.detail) b on a.detail_id = b.detail_id
+		join (select
+			provider_id,
+			provider_name,
+			provider_city,
+			case when provider_rating < 6 then 'Ненадежный'
+			else 'Надежный'
+			end as provider_is_reliable
+			from public.provider 
+		) c on a.provider_id = c.provider_id
+		) as OT
+	order by detail_is_expensive,provider_is_reliable,provider_city,detail_name, 
+	provider_name,purchase_total_price desc,purchase_total_weight desc
+	
