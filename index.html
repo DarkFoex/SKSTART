@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>СК СТАРТ</title>
+<meta name="description" content="Place to put your description text">
+<meta name="author" content="">
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script type="text/javascript" src="js/jquery.immersive-slider.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/slider.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/header.css">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class ="header_bg">
+	<div class="logo"><a href="index.html"><img src="images/лого3.png" alt=""></a></div>
+	<nav class = "topnav" id="myTopnav">
+		<div>
+			
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="services.html">Услуги</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="contacts.html">Контакты</a>
+			<a id="menu" href="#" class="icon">&#9776;</a>
+		</div>
+	</nav>
+</header>
+<main class="mw">
+    <div class="main">
+      <div class="page_container">
+        <div id="immersive_slider">
+          <div class="slide" data-blurred="images/1.jpg">
+            <div class="content">
+              <h2>Строительство домов</h2>
+              <p>Компания «СК СТАРТ» – производитель и застройщик быстровозводимого жилья для сезонного и круглогодичного проживания в Челябинске и Челябинской области. Мы предлагаем Вам строительство загородных домов под ключ, с применением высококачественных материалов, способных прослужить в течение длительного времени. Применяемые технологии отличаются своей эффективностью, обеспечивают высокую скорость возведения домов и снижают финальную стоимость работ. В нашем каталоге проектов Вы можете найти многоэтажные коттеджи и дома эконом класса.
+              </p>
+              </div>
+            <div class="image">
+                <img src="images/1.jpg" alt="Slider 1">
+            </div>
+          </div>
+          <div class="slide" data-blurred="images/4.jpg">
+            <div class="content">
+              <h2>Ремонт квартир</h2>
+              <p>Мы организуем выполнение строительных и ремонтных работ любой сложности. Мы объединили опыт, знания и профессионализм, чтобы предоставить нашим уважаемым клиентам услуги мирового класса в сфере строительства и ремонта.</p>
+            </div>
+            <div class="image">
+              <img src="images/4.jpg" alt="Slider 1">
+            </div>
+          </div>
+          <div class="slide" data-blurred="images/3.jpg">
+            <div class="content">
+              <h2>Проектирование</h2>
+              <p>Дизайн интерьера квартиры — не только дань моде, но отражение вкуса и образа жизни её хозяев, своеобразное зеркало, в котором видны их представления о красоте, гармонии, упорядоченности. Заселяясь в новое жилище или планируя капитальный ремонт, даже при скудном бюджете мы задумываемся об определённом стиле и гармонии всех элементов интерьера, которые хотели бы видеть в конечном итоге. Продуманный и современный интерьер квартиры — это ощущение комфорта, уверенности и формирование нового восприятия себя и жизни в целом.</p>
+            </div>
+            <div class="image">
+              <img src="images/3.jpg" alt="Slider 1">
+            </div>
+          </div>
+          
+          <a href="#" class="is-prev"><img src="images/w-arrow.png" width="40" height="50" alt=""></a>
+          <a href="#" class="is-next"><img src="images/w-arrow.png" width="40" height="50" alt=""></a>
+        </div>
+      </div>
+  	</div>
+  	<script type="text/javascript">
+  	  $(document).ready( function() {
+  	    $("#immersive_slider").immersive_slider({
+  	      container: ".main"
+  	    });
+  	  });
+
+    </script>
+    <div class="adv_container">
+    	<div class="adv">
+    		<div class="adv_item">
+    			<img src="images/галочка.png" width = 200 height = 200 alt="">
+    			<h2>Качество</h2>
+    			<p>Частное домостроение является основным направлением деятельности компании «CК СТАРТ».Профессионализм, высокое качество выполняемых работ - это наше кредо</p>
+    		</div>
+    		<div class="adv_item">
+    			<img src="images/галочка.png" width = 200 height = 200 alt="">
+    			<h2>Lorem ipsum</h2>
+    			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae autem ipsum consectetur sed porro consequuntur harum cupiditate minus inventore quidem quo, hic laboriosam, velit molestiae nam odio obcaecati accusamus! Tempore.</p>
+    		</div>
+    		<div class="adv_item">
+    			<img src="images/галочка.png" width = 200 height = 200 alt="">
+    			<h2>Качество</h2>
+    			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae autem ipsum consectetur sed porro consequuntur harum cupiditate minus inventore quidem quo, hic laboriosam, velit molestiae nam odio obcaecati accusamus! Tempore.</p>
+    		</div>
+    	</div>
+    </div>
+</main>
+<footer>
+	<nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="services.html">Услуги</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="contacts.html">Контакты</a>
+	</nav>
+	<div class="logo">
+		<a href="index.html">
+			<img class = "logo" src="images/лого3.png" alt="">
+		</a>
+	</div>
+	<div class="social">
+		<a href="#"><img src="images/fb.ico" width = 40 heigth = 40  alt=""></a>
+		<a href="#"><img src="images/inst.ico" width = 40 heigth = 40 alt=""></a>
+		<a href="#"><img src="images/wa.ico" width = 40 heigth = 40 alt=""></a>
+	</div>
+	<p>ООО «CК СТАРТ»</p>
+</footer>
+<script>src = "js/menu.js"</script>
+</body>
+</html>
