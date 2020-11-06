@@ -1,0 +1,34 @@
+footer{
+	width: 100%;
+	height: auto;
+	background-color: black;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 25px;
+}
+footer a{
+	color: white;
+	font-size: 14px;
+	margin-left: 10px;
+}
+footer nav a:hover{
+	border-bottom: 1px solid #fff;
+}
+footer .logo{
+	margin-bottom: 10px;
+	border-bottom-style:none;
+	background-color: #000;
+}
+.social{
+	border-bottom-style:none;
+}
+.social img{
+	margin-left: 10px;
+}
+.social img:hover{
+	background:#494949;
+	border-radius: 50%;
+}
+footer p{
+	color: white;
+}
